@@ -1,0 +1,12 @@
+steps:
+  - name: ubuntu
+    script: |
+      export http_proxy="http://10.0.3.10:9231"
+      export https_proxy="http://10.0.3.10:9231"
+      apt update
+      apt install curl -y
+      curl https://api.ipify.org/
+options:
+  pool:
+    # REPLACE [project_id], [region] and [private_worker_pool_name] with actual values
+    name: "projects/[project_id]/locations/[region]/workerPools/[private_worker_pool_name]"
